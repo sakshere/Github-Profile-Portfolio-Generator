@@ -1,0 +1,149 @@
+# GitHub Portfolio Generator - Implementation Plan
+
+A web application that takes a GitHub username, fetches profile and repository data via the GitHub API, and generates a stunning, downloadable portfolio website.
+
+## Tech Stack
+
+- **Backend:** Python 3, Flask, Requests
+- **Templating:** Jinja2 (for generating the portfolio HTML)
+- **Frontend (Generator UI):** HTML, CSS, JavaScript
+- **Frontend (Generated Portfolio):** Vanilla HTML, CSS, JS with Chart.js for skill visualization
+- **Packaging:** ZIP download of the generated static site
+
+---
+
+## Proposed Changes
+
+### Project Structure
+
+```
+c:\Capstonee\
+├── app.py                    # Flask application entry point
+├── requirements.txt          # Python dependencies
+├── github_api.py             # GitHub API client & data processing
+├── generator.py              # Portfolio site generation engine
+├── static/
+│   ├── css/
+│   │   └── style.css         # Generator UI styles
+│   ├── js/
+│   │   └── main.js           # Generator UI interactions
+├── templates/
+│   ├── index.html            # Generator landing page (input username)
+│   ├── preview.html          # Preview the generated portfolio
+│   └── portfolio/
+│       ├── template.html     # Jinja2 template for the generated portfolio
+│       └── assets/
+│           ├── portfolio.css # Portfolio site styles
+│           └── portfolio.js  # Portfolio site scripts (charts, animations)
+└── output/                   # Temporary directory for generated sites
+```
+
+---
+
+### Component 1: GitHub API Client (`github_api.py`)
+
+#### [NEW] [github_api.py](file:///c:/Capstonee/github_api.py)
+
+- `fetch_profile(username)` → Fetches user profile (name, bio, avatar, location, followers, etc.)
+- `fetch_repos(username)` → Fetches public repos (sorted by stars), extracts name, description, stars, forks, language, URL
+- `fetch_languages(username)` → Aggregates language usage across all repos (byte counts → percentages)
+- `process_data(username)` → Combines all data into a single dictionary ready for template rendering
+- Uses GitHub REST API v3 (no auth required for public data, but supports optional token for rate limits)
+
+---
+
+### Component 2: Flask Application (`app.py`)
+
+#### [NEW] [app.py](file:///c:/Capstonee/app.py)
+
+**Routes:**
+| Route | Method | Description |
+|-------|--------|-------------|
+| `/` | GET | Landing page with username input |
+| `/generate` | POST | Fetches GitHub data, generates portfolio, returns preview |
+| `/preview/<session_id>` | GET | Shows generated portfolio in iframe |
+| `/download/<session_id>` | GET | Downloads the generated site as a ZIP |
+
+- Uses session-based temp directories for generated output
+- Error handling for invalid usernames, API rate limits, network errors
+
+---
+
+### Component 3: Site Generator Engine (`generator.py`)
+
+#### [NEW] [generator.py](file:///c:/Capstonee/generator.py)
+
+- Takes processed GitHub data + selected theme
+- Renders the Jinja2 portfolio template with the data
+- Copies CSS/JS assets into the output folder
+- Bundles everything into a self-contained static site
+- Creates a ZIP file for download
+
+---
+
+### Component 4: Generator UI (Landing Page)
+
+#### [NEW] [templates/index.html](file:///c:/Capstonee/templates/index.html)
+
+- Modern, eye-catching landing page with glassmorphism design
+- GitHub username input with validation
+- Theme/color selector (dark, light, gradient variants)
+- "Generate Portfolio" button with loading animation
+
+#### [NEW] [static/css/style.css](file:///c:/Capstonee/static/css/style.css)
+
+- Gradient backgrounds, smooth animations, dark theme
+
+#### [NEW] [static/js/main.js](file:///c:/Capstonee/static/js/main.js)
+
+- Form handling, loading states, username validation
+
+---
+
+### Component 5: Portfolio Template (Generated Site)
+
+#### [NEW] [templates/portfolio/template.html](file:///c:/Capstonee/templates/portfolio/template.html)
+
+Generated portfolio sections:
+1. **Hero:** Avatar, name, bio, social links
+2. **Skills:** Language usage donut chart (Chart.js)
+3. **Projects:** Responsive grid of top repos with stars, forks, language badges
+4. **Stats:** Total repos, stars, forks counters
+5. **Footer:** Credit and links
+
+#### [NEW] [templates/portfolio/assets/portfolio.css](file:///c:/Capstonee/templates/portfolio/assets/portfolio.css)
+
+- Self-contained CSS with theme variants via CSS custom properties
+- Responsive grid, card hover effects, scroll animations
+
+#### [NEW] [templates/portfolio/assets/portfolio.js](file:///c:/Capstonee/templates/portfolio/assets/portfolio.js)
+
+- Chart.js for skills visualization, scroll animations, counter effects
+
+---
+
+### Component 6: Dependencies
+
+#### [NEW] [requirements.txt](file:///c:/Capstonee/requirements.txt)
+
+```
+flask>=3.0
+requests>=2.31
+```
+
+---
+
+## Verification Plan
+
+### Browser Testing
+1. Run `python app.py` to start the Flask dev server
+2. Open `http://localhost:5000` in the browser
+3. Enter a GitHub username (e.g., `torvalds`, `octocat`) and click Generate
+4. Verify preview loads with correct profile data, repos, and language chart
+5. Click Download and verify the ZIP downloads
+
+### Manual Verification
+1. Extract the downloaded ZIP and open `index.html` — verify it renders as a standalone site
+2. Test with different usernames for data accuracy
+3. Test with a non-existent username — verify error message shows
+4. Resize browser window — verify responsive design works

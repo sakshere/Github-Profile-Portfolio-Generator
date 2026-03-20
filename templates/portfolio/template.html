@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ profile.name }} - Developer Portfolio. {{ profile.bio }}">
+    <title>{{ profile.name }} | Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/portfolio.css">
+    <style>
+        :root {
+            --bg-primary: {
+                    {
+                    theme.bg_primary
+                }
+            }
+
+            ;
+
+            --bg-secondary: {
+                    {
+                    theme.bg_secondary
+                }
+            }
+
+            ;
+
+            --bg-card: {
+                    {
+                    theme.bg_card
+                }
+            }
+
+            ;
+
+            --text-primary: {
+                    {
+                    theme.text_primary
+                }
+            }
+
+            ;
+
+            --text-secondary: {
+                    {
+                    theme.text_secondary
+                }
+            }
+
+            ;
+
+            --accent: {
+                    {
+                    theme.accent
+                }
+            }
+
+            ;
+
+            --accent-hover: {
+                    {
+                    theme.accent_hover
+                }
+            }
+
+            ;
+
+            --accent-glow: {
+                    {
+                    theme.accent_glow
+                }
+            }
+
+            ;
+
+            --gradient-start: {
+                    {
+                    theme.gradient_start
+                }
+            }
+
+            ;
+
+            --gradient-end: {
+                    {
+                    theme.gradient_end
+                }
+            }
+
+            ;
+
+            --border: {
+                    {
+                    theme.border
+                }
+            }
+
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="portfolio-bg-grid"></div>
+    <div class="portfolio-bg-glow glow-1"></div>
+    <div class="portfolio-bg-glow glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="portfolio-nav">
+        <a href="#" class="portfolio-nav-brand">{{ profile.name.split(' ')[0] if ' ' in profile.name else
+            profile.username }}</a>
+        <div class="portfolio-nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="{{ profile.html_url }}" target="_blank" class="portfolio-nav-cta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero" id="hero">
+        <div class="portfolio-hero-content">
+            <div class="portfolio-avatar-wrapper">
+                <img src="{{ profile.avatar_url }}" alt="{{ profile.name }}" class="portfolio-avatar">
+                <div class="portfolio-avatar-ring"></div>
+            </div>
+            <h1 class="portfolio-hero-name">{{ profile.name }}</h1>
+            <p class="portfolio-hero-bio">{{ profile.bio }}</p>
+            <div class="portfolio-hero-meta">
+                {% if profile.location %}
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {{ profile.location }}
+                </span>
+                {% endif %}
+                {% if profile.company %}
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    {{ profile.company }}
+                </span>
+                {% endif %}
+                {% if profile.blog %}
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                    <a href="{{ profile.blog if profile.blog.startswith('http') else 'https://' + profile.blog }}"
+                        target="_blank">{{ profile.blog }}</a>
+                </span>
+                {% endif %}
+            </div>
+            <div class="portfolio-hero-stats">
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="{{ stats.total_repos }}">0</span>
+                    <span class="portfolio-stat-label">Repositories</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="{{ stats.total_stars }}">0</span>
+                    <span class="portfolio-stat-label">Stars Earned</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="{{ stats.total_forks }}">0</span>
+                    <span class="portfolio-stat-label">Forks</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="{{ profile.followers }}">0</span>
+                    <span class="portfolio-stat-label">Followers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    {% if languages %}
+    <section class="portfolio-section" id="skills">
+        <div class="portfolio-container">
+            <div class="portfolio-section-header">
+                <span class="portfolio-tag">Skills</span>
+                <h2>Tech Stack</h2>
+                <p>Languages and technologies used across repositories</p>
+            </div>
+            <div class="skills-layout">
+                <div class="chart-wrapper">
+                    <canvas id="skills-chart" width="280" height="280"></canvas>
+                </div>
+                <div class="skills-list">
+                    {% for lang in languages %}
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: {{ lang.color }};"></span>
+                            <span class="skill-name">{{ lang.name }}</span>
+                            <span class="skill-pct">{{ lang.percentage }}%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: {{ lang.color }};"
+                                data-width="{{ lang.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Projects Section -->
+    {% if repos %}
+    <section class="portfolio-section" id="projects">
+        <div class="portfolio-container">
+            <div class="portfolio-section-header">
+                <span class="portfolio-tag">Projects</span>
+                <h2>Featured Repositories</h2>
+                <p>A selection of notable open-source work</p>
+            </div>
+            <div class="projects-grid">
+                {% for repo in repos %}
+                <a href="{{ repo.html_url }}" target="_blank" class="project-card"
+                    style="animation-delay: {{ loop.index0 * 0.05 }}s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">{{ repo.name }}</h3>
+                    <p class="project-desc">{{ repo.description }}</p>
+                    <div class="project-footer">
+                        {% if repo.language != 'Unknown' %}
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: {{ repo.language | language_color }};"></span>
+                            {{ repo.language }}
+                        </span>
+                        {% endif %}
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            {{ repo.stargazers_count }}
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            {{ repo.forks_count }}
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="portfolio-container">
+            <p>Portfolio generated by <strong>GitHub Portfolio Generator</strong></p>
+            <div class="footer-links">
+                <a href="{{ profile.html_url }}" target="_blank">GitHub Profile</a>
+                {% if profile.blog %}
+                <a href="{{ profile.blog if profile.blog.startswith('http') else 'https://' + profile.blog }}"
+                    target="_blank">Website</a>
+                {% endif %}
+                {% if profile.twitter %}
+                <a href="https://twitter.com/{{ profile.twitter }}" target="_blank">Twitter</a>
+                {% endif %}
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="assets/portfolio.js"></script>
+    <script>
+        // Pass data to portfolio.js
+        window.PORTFOLIO_DATA = {
+            languages: {{ languages | tojson }},
+        };
+    </script>
+</body>
+
+</html>

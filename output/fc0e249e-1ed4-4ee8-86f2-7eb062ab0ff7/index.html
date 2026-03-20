@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Umesh Rao - Developer Portfolio. Coffee, code, and curiosity
+, Exploring the intelligence behind algorithms
+, Learning the bits and brains of the digital world
+">
+    <title>Umesh Rao | Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/portfolio.css">
+    <style>
+        :root {
+            --bg-primary: {
+                    {
+                    theme.bg_primary
+                }
+            }
+
+            ;
+
+            --bg-secondary: {
+                    {
+                    theme.bg_secondary
+                }
+            }
+
+            ;
+
+            --bg-card: {
+                    {
+                    theme.bg_card
+                }
+            }
+
+            ;
+
+            --text-primary: {
+                    {
+                    theme.text_primary
+                }
+            }
+
+            ;
+
+            --text-secondary: {
+                    {
+                    theme.text_secondary
+                }
+            }
+
+            ;
+
+            --accent: {
+                    {
+                    theme.accent
+                }
+            }
+
+            ;
+
+            --accent-hover: {
+                    {
+                    theme.accent_hover
+                }
+            }
+
+            ;
+
+            --accent-glow: {
+                    {
+                    theme.accent_glow
+                }
+            }
+
+            ;
+
+            --gradient-start: {
+                    {
+                    theme.gradient_start
+                }
+            }
+
+            ;
+
+            --gradient-end: {
+                    {
+                    theme.gradient_end
+                }
+            }
+
+            ;
+
+            --border: {
+                    {
+                    theme.border
+                }
+            }
+
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="portfolio-bg-grid"></div>
+    <div class="portfolio-bg-glow glow-1"></div>
+    <div class="portfolio-bg-glow glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="portfolio-nav">
+        <a href="#" class="portfolio-nav-brand">Umesh</a>
+        <div class="portfolio-nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="https://github.com/umeshyadav7988" target="_blank" class="portfolio-nav-cta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero" id="hero">
+        <div class="portfolio-hero-content">
+            <div class="portfolio-avatar-wrapper">
+                <img src="https://avatars.githubusercontent.com/u/97531471?v=4" alt="Umesh Rao" class="portfolio-avatar">
+                <div class="portfolio-avatar-ring"></div>
+            </div>
+            <h1 class="portfolio-hero-name">Umesh Rao</h1>
+            <p class="portfolio-hero-bio">Coffee, code, and curiosity
+, Exploring the intelligence behind algorithms
+, Learning the bits and brains of the digital world
+</p>
+            <div class="portfolio-hero-meta">
+                
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Rewari,Haryana,India
+                </span>
+                
+                
+                
+            </div>
+            <div class="portfolio-hero-stats">
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="66">0</span>
+                    <span class="portfolio-stat-label">Repositories</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="2">0</span>
+                    <span class="portfolio-stat-label">Stars Earned</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="0">0</span>
+                    <span class="portfolio-stat-label">Forks</span>
+                </div>
+                <div class="portfolio-stat">
+                    <span class="portfolio-stat-value" data-count="8">0</span>
+                    <span class="portfolio-stat-label">Followers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    
+    <section class="portfolio-section" id="skills">
+        <div class="portfolio-container">
+            <div class="portfolio-section-header">
+                <span class="portfolio-tag">Skills</span>
+                <h2>Tech Stack</h2>
+                <p>Languages and technologies used across repositories</p>
+            </div>
+            <div class="skills-layout">
+                <div class="chart-wrapper">
+                    <canvas id="skills-chart" width="280" height="280"></canvas>
+                </div>
+                <div class="skills-list">
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #f1e05a;"></span>
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-pct">62.7%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #f1e05a;"
+                                data-width="62.7%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #3178c6;"></span>
+                            <span class="skill-name">TypeScript</span>
+                            <span class="skill-pct">12.9%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #3178c6;"
+                                data-width="12.9%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #3572A5;"></span>
+                            <span class="skill-name">Python</span>
+                            <span class="skill-pct">8.4%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #3572A5;"
+                                data-width="8.4%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #563d7c;"></span>
+                            <span class="skill-name">CSS</span>
+                            <span class="skill-pct">8.3%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #563d7c;"
+                                data-width="8.3%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #e34c26;"></span>
+                            <span class="skill-name">HTML</span>
+                            <span class="skill-pct">3.5%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #e34c26;"
+                                data-width="3.5%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #858585;"></span>
+                            <span class="skill-name">PowerShell</span>
+                            <span class="skill-pct">2.5%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #858585;"
+                                data-width="2.5%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-dot" style="background: #858585;"></span>
+                            <span class="skill-name">SCSS</span>
+                            <span class="skill-pct">1.7%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 0%; background: #858585;"
+                                data-width="1.7%"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    
+    <section class="portfolio-section" id="projects">
+        <div class="portfolio-container">
+            <div class="portfolio-section-header">
+                <span class="portfolio-tag">Projects</span>
+                <h2>Featured Repositories</h2>
+                <p>A selection of notable open-source work</p>
+            </div>
+            <div class="projects-grid">
+                
+                <a href="https://github.com/umeshyadav7988/umeshyadav7988" target="_blank" class="project-card"
+                    style="animation-delay: 0.0s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">umeshyadav7988</h3>
+                    <p class="project-desc">Hello world , This is my profile</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            1
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Exam_Nexus_Project" target="_blank" class="project-card"
+                    style="animation-delay: 0.05s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Exam_Nexus_Project</h3>
+                    <p class="project-desc">ExamNexus: Revolutionizing Education Assessment Project Description: ExamNexus is a cutting-edge web platform addressing the challenges faced by students and universities in timely result access, result appeal processes, and exam analysis. Designed for Chitkara University and beyond, ExamNexus serves as a central hub, providing real-time exam infor</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #f1e05a;"></span>
+                            JavaScript
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            1
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Face-Mask-Detection" target="_blank" class="project-card"
+                    style="animation-delay: 0.1s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Face-Mask-Detection</h3>
+                    <p class="project-desc">No description provided.</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #3572A5;"></span>
+                            Python
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Document_Analysis_Web_Application" target="_blank" class="project-card"
+                    style="animation-delay: 0.15000000000000002s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Document_Analysis_Web_Application</h3>
+                    <p class="project-desc">The Document Analysis Web Application allows users to upload scanned PDFs and extract text-based insights using Tesseract.js OCR. The application provides various document statistics and word frequency analysis in a user-friendly interface.  🛠 Features</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #f1e05a;"></span>
+                            JavaScript
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/HumanMail" target="_blank" class="project-card"
+                    style="animation-delay: 0.2s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">HumanMail</h3>
+                    <p class="project-desc">A Very Simple Human-in-the-Loop AI Email Automation System (IMAP + OpenAI + n8n)</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/bga_pathfinder" target="_blank" class="project-card"
+                    style="animation-delay: 0.25s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">bga_pathfinder</h3>
+                    <p class="project-desc">The BGA Pathfinder is a project that implements the A* pathfinding algorithm to assist with Ball Grid Array (BGA) breakout routing. The algorithm is designed to find optimal paths across multi-layer grids, ensuring efficient routing of traces for BGA designs. The project also visualizes the pathfinding process using matplotlib.  This repository con</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #3572A5;"></span>
+                            Python
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Voice-Chat-Agent-using-Graph-RAG" target="_blank" class="project-card"
+                    style="animation-delay: 0.30000000000000004s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Voice-Chat-Agent-using-Graph-RAG</h3>
+                    <p class="project-desc">This workflow creates an AI voice chatbot agent that has access to several knowledge bases at the same time </p>
+                    <div class="project-footer">
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/SwiftRoom" target="_blank" class="project-card"
+                    style="animation-delay: 0.35000000000000003s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">SwiftRoom</h3>
+                    <p class="project-desc">SwiftRoom Allocator is a hostel room allocation system designed to streamline the process for college students and administrators. With features such as instant room selection, change options, and an easy departure process, SwiftRoom Allocator aims to simplify the hostel experience and promote efficiency.</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #f1e05a;"></span>
+                            JavaScript
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Chat-with-a-database" target="_blank" class="project-card"
+                    style="animation-delay: 0.4s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Chat-with-a-database</h3>
+                    <p class="project-desc">This project provides an AI-powered workflow that lets you ask natural language questions about your database and get meaningful answers in real-time. It is powered by n8n, OpenAI (or any LLM API), and supports multiple database types such as Postgres, MySQL, and SQLite.</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/YouTube-Title-Description-Auto-Generator" target="_blank" class="project-card"
+                    style="animation-delay: 0.45s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">YouTube-Title-Description-Auto-Generator</h3>
+                    <p class="project-desc">YouTube Title &amp; Description Auto Generator (with Google Sheets &amp; Email Integration) using n8n</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Shared_Wishlist_App" target="_blank" class="project-card"
+                    style="animation-delay: 0.5s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Shared_Wishlist_App</h3>
+                    <p class="project-desc">A collaborative product wishlist platform where multiple users can create, manage, and interact with wishlists in real-time. Perfect for group gift planning, shopping sprees, or event coordination — all through a modern, mobile-friendly interface!</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #3178c6;"></span>
+                            TypeScript
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/umeshyadav7988/Flask_PROMPT_API" target="_blank" class="project-card"
+                    style="animation-delay: 0.55s;">
+                    <div class="project-card-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20" class="project-icon">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18" class="project-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </div>
+                    <h3 class="project-name">Flask_PROMPT_API</h3>
+                    <p class="project-desc">This is a Flask-based API built using MVC architecture that matches system prompts based on input filters. The API uses a service layer, view layer, and includes full automated testing with pytest.</p>
+                    <div class="project-footer">
+                        
+                        <span class="project-lang">
+                            <span class="lang-dot" style="background: #3572A5;"></span>
+                            Python
+                        </span>
+                        
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            0
+                        </span>
+                        <span class="project-meta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <circle cx="12" cy="18" r="3" />
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" />
+                                <path d="M12 12v3" />
+                            </svg>
+                            0
+                        </span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="portfolio-container">
+            <p>Portfolio generated by <strong>GitHub Portfolio Generator</strong></p>
+            <div class="footer-links">
+                <a href="https://github.com/umeshyadav7988" target="_blank">GitHub Profile</a>
+                
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="assets/portfolio.js"></script>
+    <script>
+        // Pass data to portfolio.js
+        window.PORTFOLIO_DATA = {
+            languages: [{"color": "#f1e05a", "name": "JavaScript", "percentage": 62.7}, {"color": "#3178c6", "name": "TypeScript", "percentage": 12.9}, {"color": "#3572A5", "name": "Python", "percentage": 8.4}, {"color": "#563d7c", "name": "CSS", "percentage": 8.3}, {"color": "#e34c26", "name": "HTML", "percentage": 3.5}, {"color": "#858585", "name": "PowerShell", "percentage": 2.5}, {"color": "#858585", "name": "SCSS", "percentage": 1.7}],
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate a stunning portfolio website from your GitHub profile in seconds. No coding required.">
+    <title>GitHub Portfolio Generator | Create Your Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            <span>PortfolioGen</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#themes">Themes</a>
+            <a href="#generator" class="nav-cta">Generate Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Free & Open Source
+            </div>
+            <h1 class="hero-title">
+                Turn Your <span class="gradient-text">GitHub</span> Into
+                <br>A Stunning Portfolio
+            </h1>
+            <p class="hero-subtitle">
+                Generate a beautiful, responsive portfolio website from your GitHub profile
+                in seconds. Just enter your username and we'll do the rest.
+            </p>
+            <div class="hero-actions">
+                <a href="#generator" class="btn btn-primary btn-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    Get Started
+                </a>
+                <a href="#features" class="btn btn-ghost btn-lg">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">&lt;30s</span>
+                    <span class="stat-label">Generation Time</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Themes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Everything You Need</h2>
+                <p>One click to a professional developer portfolio</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="--accent: #7c3aed;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Auto Data Fetching</h3>
+                    <p>Automatically pulls your profile, repositories, languages, and stats from GitHub API.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="--accent: #2563eb;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <path d="M3 9h18M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3>Beautiful Templates</h3>
+                    <p>Professionally designed, responsive layouts that look great on any device.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="--accent: #059669;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Skills Visualization</h3>
+                    <p>Interactive charts showing your language usage and technical expertise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="--accent: #dc2626;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <h3>Download & Deploy</h3>
+                    <p>Get a ready-to-deploy static site. Host it anywhere — GitHub Pages, Netlify, or Vercel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="themes-section" id="themes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Themes</span>
+                <h2>Choose Your Style</h2>
+                <p>Four carefully crafted themes to match your personality</p>
+            </div>
+            <div class="themes-grid">
+                {% for theme_id, theme_name in themes.items() %}
+                <div class="theme-card" data-theme="{{ theme_id }}">
+                    <div class="theme-preview theme-preview-{{ theme_id }}">
+                        <div class="theme-preview-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="theme-preview-content">
+                            <div class="theme-preview-avatar"></div>
+                            <div class="theme-preview-lines">
+                                <div class="line line-lg"></div>
+                                <div class="line line-md"></div>
+                            </div>
+                            <div class="theme-preview-cards">
+                                <div class="mini-card"></div>
+                                <div class="mini-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="theme-name">{{ theme_name }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="generator-section" id="generator">
+        <div class="container">
+            <div class="generator-card">
+                <div class="section-header">
+                    <span class="section-tag">Generator</span>
+                    <h2>Create Your Portfolio</h2>
+                    <p>Enter your GitHub username and select a theme to get started</p>
+                </div>
+                <form id="generate-form" class="generator-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <input
+                                type="text"
+                                id="username-input"
+                                name="username"
+                                placeholder="Enter GitHub username..."
+                                autocomplete="off"
+                                required
+                            >
+                        </div>
+                        <input type="hidden" id="selected-theme" name="theme" value="dark">
+                        <button type="submit" class="btn btn-primary" id="generate-btn">
+                            <span class="btn-text">Generate Portfolio</span>
+                            <span class="btn-loader" style="display: none;">
+                                <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                                </svg>
+                                Generating...
+                            </span>
+                        </button>
+                    </div>
+                    <div class="theme-selector">
+                        <label>Select Theme:</label>
+                        <div class="theme-pills">
+                            {% for theme_id, theme_name in themes.items() %}
+                            <button type="button" class="theme-pill {% if theme_id == 'dark' %}active{% endif %}"
+                                    data-theme="{{ theme_id }}">
+                                <span class="pill-dot pill-dot-{{ theme_id }}"></span>
+                                {{ theme_name }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+                <div id="error-msg" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Section (hidden initially) -->
+    <section class="result-section" id="result" style="display: none;">
+        <div class="container">
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="result-avatar-wrapper">
+                        <img id="result-avatar" src="" alt="GitHub Avatar" class="result-avatar">
+                    </div>
+                    <div class="result-info">
+                        <h2 id="result-name"></h2>
+                        <p id="result-username" class="result-handle"></p>
+                    </div>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-number" id="result-repos">0</span>
+                            <span class="result-stat-label">Repos</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number" id="result-stars">0</span>
+                            <span class="result-stat-label">Stars</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number" id="result-forks">0</span>
+                            <span class="result-stat-label">Forks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <a id="preview-link" href="#" target="_blank" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        Preview Portfolio
+                    </a>
+                    <a id="download-link" href="#" class="btn btn-ghost">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download ZIP
+                    </a>
+                    <button class="btn btn-outline" id="regenerate-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                        Generate Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                    <span>GitHub Portfolio Generator</span>
+                </div>
+                <p class="footer-text">Built as a Capstone Project. Powered by the GitHub API.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
