@@ -12,93 +12,19 @@
     <link rel="stylesheet" href="assets/portfolio.css">
     <style>
         :root {
-            --bg-primary: {
-                    {
-                    theme.bg_primary
-                }
-            }
-
-            ;
-
-            --bg-secondary: {
-                    {
-                    theme.bg_secondary
-                }
-            }
-
-            ;
-
-            --bg-card: {
-                    {
-                    theme.bg_card
-                }
-            }
-
-            ;
-
-            --text-primary: {
-                    {
-                    theme.text_primary
-                }
-            }
-
-            ;
-
-            --text-secondary: {
-                    {
-                    theme.text_secondary
-                }
-            }
-
-            ;
-
-            --accent: {
-                    {
-                    theme.accent
-                }
-            }
-
-            ;
-
-            --accent-hover: {
-                    {
-                    theme.accent_hover
-                }
-            }
-
-            ;
-
-            --accent-glow: {
-                    {
-                    theme.accent_glow
-                }
-            }
-
-            ;
-
-            --gradient-start: {
-                    {
-                    theme.gradient_start
-                }
-            }
-
-            ;
-
-            --gradient-end: {
-                    {
-                    theme.gradient_end
-                }
-            }
-
-            ;
-
-            --border: {
-                    {
-                    theme.border
-                }
-            }
-
-            ;
+            --bg-primary: {{ theme.bg_primary }};
+            --bg-primary-rgb: {{ theme.bg_primary_rgb }};
+            --bg-secondary: {{ theme.bg_secondary }};
+            --bg-card: {{ theme.bg_card }};
+            --text-primary: {{ theme.text_primary }};
+            --text-secondary: {{ theme.text_secondary }};
+            --accent: {{ theme.accent }};
+            --accent-rgb: {{ theme.accent_rgb }};
+            --accent-hover: {{ theme.accent_hover }};
+            --accent-glow: {{ theme.accent_glow }};
+            --gradient-start: {{ theme.gradient_start }};
+            --gradient-end: {{ theme.gradient_end }};
+            --border: {{ theme.border }};
         }
     </style>
 </head>
@@ -129,59 +55,59 @@
 
     <!-- Hero Section -->
     <section class="portfolio-hero" id="hero">
-        <div class="portfolio-hero-content">
-            <div class="portfolio-avatar-wrapper">
-                <img src="{{ profile.avatar_url }}" alt="{{ profile.name }}" class="portfolio-avatar">
-                <div class="portfolio-avatar-ring"></div>
-            </div>
-            <h1 class="portfolio-hero-name">{{ profile.name }}</h1>
-            <p class="portfolio-hero-bio">{{ profile.bio }}</p>
-            <div class="portfolio-hero-meta">
-                {% if profile.location %}
-                <span class="meta-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    {{ profile.location }}
-                </span>
-                {% endif %}
-                {% if profile.company %}
-                <span class="meta-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
-                    {{ profile.company }}
-                </span>
-                {% endif %}
-                {% if profile.blog %}
-                <span class="meta-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-                    </svg>
-                    <a href="{{ profile.blog if profile.blog.startswith('http') else 'https://' + profile.blog }}"
-                        target="_blank">{{ profile.blog }}</a>
-                </span>
-                {% endif %}
-            </div>
-            <div class="portfolio-hero-stats">
-                <div class="portfolio-stat">
-                    <span class="portfolio-stat-value" data-count="{{ stats.total_repos }}">0</span>
-                    <span class="portfolio-stat-label">Repositories</span>
+        <div class="portfolio-container">
+            <div class="portfolio-hero-inner">
+                <div class="portfolio-hero-left">
+                    <div class="portfolio-avatar-wrapper">
+                        <img src="{{ profile.avatar_url }}" alt="{{ profile.name }}" class="portfolio-avatar">
+                        <div class="portfolio-avatar-ring"></div>
+                        <div class="portfolio-avatar-glow"></div>
+                    </div>
                 </div>
-                <div class="portfolio-stat">
-                    <span class="portfolio-stat-value" data-count="{{ stats.total_stars }}">0</span>
-                    <span class="portfolio-stat-label">Stars Earned</span>
-                </div>
-                <div class="portfolio-stat">
-                    <span class="portfolio-stat-value" data-count="{{ stats.total_forks }}">0</span>
-                    <span class="portfolio-stat-label">Forks</span>
-                </div>
-                <div class="portfolio-stat">
-                    <span class="portfolio-stat-value" data-count="{{ profile.followers }}">0</span>
-                    <span class="portfolio-stat-label">Followers</span>
+                <div class="portfolio-hero-right">
+                    <span class="portfolio-hero-badge">Available for projects</span>
+                    <h1 class="portfolio-hero-name">{{ profile.name }}</h1>
+                    <p class="portfolio-hero-bio">{{ profile.bio }}</p>
+                    <div class="portfolio-hero-meta">
+                        {% if profile.location %}
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                                height="16">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            {{ profile.location }}
+                        </span>
+                        {% endif %}
+                        {% if profile.company %}
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                                height="16">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                            {{ profile.company }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="portfolio-hero-stats">
+                        <div class="portfolio-stat">
+                            <span class="portfolio-stat-value" data-count="{{ stats.total_repos }}">0</span>
+                            <span class="portfolio-stat-label">Repos</span>
+                        </div>
+                        <div class="portfolio-stat">
+                            <span class="portfolio-stat-value" data-count="{{ stats.total_stars }}">0</span>
+                            <span class="portfolio-stat-label">Stars</span>
+                        </div>
+                        <div class="portfolio-stat">
+                            <span class="portfolio-stat-value" data-count="{{ profile.followers }}">0</span>
+                            <span class="portfolio-stat-label">Followers</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-hero-actions">
+                        <a href="#projects" class="btn-primary">View Projects</a>
+                        <a href="{{ profile.html_url }}" target="_blank" class="btn-secondary">GitHub Profile</a>
+                    </div>
                 </div>
             </div>
         </div>

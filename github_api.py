@@ -8,21 +8,39 @@ import os
 from collections import defaultdict
 
 
+from urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
+
 GITHUB_API_BASE = "https://api.github.com"
 
 # Optional: set GITHUB_TOKEN env variable to avoid rate limiting
+# You can also hardcode your token here for testing (uncomment and replace):
+# GITHUB_TOKEN = "your_personal_access_token_here"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
 
 
-def _get_headers():
-    """Build request headers, including auth token if available."""
-    headers = {
+def _get_session():
+    """Create a requests session with robust retry logic."""
+    session = requests.Session()
+    retries = Retry(
+        total=5,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        raise_on_status=False
+    )
+    adapter = HTTPAdapter(max_retries=retries)
+    session.mount("https://", adapter)
+    session.headers.update({
         "Accept": "application/vnd.github.v3+json",
         "User-Agent": "GitHubPortfolioGenerator/1.0"
-    }
+    })
     if GITHUB_TOKEN:
-        headers["Authorization"] = f"token {GITHUB_TOKEN}"
-    return headers
+        session.headers.update({"Authorization": f"token {GITHUB_TOKEN}"})
+    return session
+
+
+# Global session instance
+api_session = _get_session()
 
 
 def fetch_profile(username):
@@ -31,7 +49,7 @@ def fetch_profile(username):
     Returns a dict with user info or raises an exception.
     """
     url = f"{GITHUB_API_BASE}/users/{username}"
-    response = requests.get(url, headers=_get_headers(), timeout=15)
+    response = api_session.get(url, timeout=15)
 
     if response.status_code == 404:
         raise ValueError(f"GitHub user '{username}' not found.")
@@ -75,7 +93,7 @@ def fetch_repos(username, max_repos=100):
             "per_page": per_page,
             "page": page,
         }
-        response = requests.get(url, headers=_get_headers(), params=params, timeout=15)
+        response = api_session.get(url, params=params, timeout=15)
         response.raise_for_status()
 
         data = response.json()
@@ -119,7 +137,7 @@ def fetch_languages(username, repos=None):
     for repo in repos[:30]:  # Limit API calls to top 30 repos
         url = f"{GITHUB_API_BASE}/repos/{username}/{repo['name']}/languages"
         try:
-            response = requests.get(url, headers=_get_headers(), timeout=10)
+            response = api_session.get(url, timeout=10)
             response.raise_for_status()
             langs = response.json()
             for lang, byte_count in langs.items():

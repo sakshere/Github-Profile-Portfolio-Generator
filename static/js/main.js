@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedTheme = document.getElementById("selected-theme");
     const resultSection = document.getElementById("result");
     const regenerateBtn = document.getElementById("regenerate-btn");
+    const rateLimitHint = document.getElementById("rate-limit-hint");
 
     // ---- Theme Selection ----
     document.querySelectorAll(".theme-pill").forEach((pill) => {
@@ -112,10 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function showError(message) {
         errorMsg.textContent = message;
         errorMsg.style.display = "block";
+
+        if (message.toLowerCase().includes("rate limit") || message.toLowerCase().includes("403")) {
+            rateLimitHint.style.display = "block";
+        } else {
+            rateLimitHint.style.display = "none";
+        }
     }
 
     function hideError() {
         errorMsg.style.display = "none";
+        rateLimitHint.style.display = "none";
     }
 
     function showResult(data) {
