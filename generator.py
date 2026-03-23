@@ -124,6 +124,7 @@ def generate_portfolio(data, theme_id="dark"):
         repos=data["repos"],
         languages=data["languages"],
         stats=data["stats"],
+        ai_summary=data.get("ai_summary"),
         theme=theme,
         theme_id=theme_id,
     )

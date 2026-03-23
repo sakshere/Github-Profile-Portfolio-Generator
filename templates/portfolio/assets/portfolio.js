@@ -136,4 +136,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
 });
+
+/**
+ * Toggle AI Summary visibility
+ */
+function toggleAISummary(event, id) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const summary = document.getElementById(id);
+    const btn = event.currentTarget;
+    
+    if (summary.classList.contains('active')) {
+        summary.classList.remove('active');
+        btn.textContent = 'Show AI Summary';
+    } else {
+        summary.classList.add('active');
+        btn.textContent = 'Hide AI Summary';
+    }
+}

@@ -67,7 +67,7 @@
                 <div class="portfolio-hero-right">
                     <span class="portfolio-hero-badge">Available for projects</span>
                     <h1 class="portfolio-hero-name">{{ profile.name }}</h1>
-                    <p class="portfolio-hero-bio">{{ profile.bio }}</p>
+                    <p class="portfolio-hero-bio">{{ ai_summary if ai_summary else profile.bio }}</p>
                     <div class="portfolio-hero-meta">
                         {% if profile.location %}
                         <span class="meta-item">
@@ -173,6 +173,21 @@
                     </div>
                     <h3 class="project-name">{{ repo.name }}</h3>
                     <p class="project-desc">{{ repo.description }}</p>
+                    
+                    {% if repo.ai_readme_summary %}
+                    <div class="project-ai-summary" id="ai-summary-{{ loop.index0 }}">
+                        <div class="ai-summary-tag">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            AI Quick Look
+                        </div>
+                        <p>{{ repo.ai_readme_summary }}</p>
+                    </div>
+                    <button class="btn-ai-toggle" onclick="toggleAISummary(event, 'ai-summary-{{ loop.index0 }}')">
+                        Show AI Summary
+                    </button>
+                    {% endif %}
                     <div class="project-footer">
                         {% if repo.language != 'Unknown' %}
                         <span class="project-lang">

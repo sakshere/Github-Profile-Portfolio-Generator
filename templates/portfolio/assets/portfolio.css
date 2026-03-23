@@ -590,3 +590,56 @@ body {
         font-size: 2.25rem;
     }
 }
+
+/* ---------- AI Enhancements ---------- */
+.project-ai-summary {
+    display: none;
+    margin-top: 16px;
+    padding: 16px;
+    background: rgba(var(--accent-rgb), 0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.project-ai-summary.active {
+    display: block;
+}
+
+.ai-summary-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.btn-ai-toggle {
+    margin-top: 16px;
+    background: transparent;
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.btn-ai-toggle:hover {
+    background: rgba(var(--accent-rgb), 0.1);
+    border-color: var(--accent);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

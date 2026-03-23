@@ -5,7 +5,10 @@ Handles fetching and processing user data from the GitHub REST API.
 
 import requests
 import os
+import base64
+import time
 from collections import defaultdict
+from ai_service import generate_professional_summary, generate_readme_summary
 
 
 from urllib3.util.retry import Retry
@@ -283,6 +286,25 @@ def get_profile_insights(data):
     return insights
 
 
+def fetch_readme(username, repo_name):
+    """
+    Fetch the README.md content for a repository.
+    Returns the decoded content as a string or None.
+    """
+    url = f"{GITHUB_API_BASE}/repos/{username}/{repo_name}/readme"
+    try:
+        response = api_session.get(url, timeout=10)
+        if response.status_code == 200:
+            content_data = response.json()
+            # Decode the base64 content
+            content = base64.b64decode(content_data['content']).decode('utf-8')
+            return content
+        return None
+    except Exception as e:
+        print(f"Error fetching README for {repo_name}: {e}")
+        return None
+
+
 def process_data(username):
     """
     Main function: fetches and processes all GitHub data for a user.
@@ -312,5 +334,32 @@ def process_data(username):
 
     # Add insights based on the processed data
     data["insights"] = get_profile_insights(data)
+
+    # NEW: AI Enchancements
+    print(f"Generating AI summary for {username}...")
+    data["ai_summary"] = generate_professional_summary(profile, repos[:10])
+
+    # Generate AI summaries for the top 6 repos concurrently
+    print("Generating AI README summaries concurrently...")
+    from concurrent.futures import ThreadPoolExecutor
+
+    def process_repo_ai(repo):
+        readme_content = fetch_readme(username, repo["name"])
+        if readme_content:
+            summary = generate_readme_summary(readme_content)
+            # Use AI summary if it doesn't look like a generic fallback
+            is_placeholder = any(phrase in summary for phrase in ["Explore this project", "Dive into", "Project exploration"])
+            
+            if is_placeholder and repo["description"] and repo["description"] != "No description provided.":
+                repo["ai_readme_summary"] = repo["description"]
+            else:
+                repo["ai_readme_summary"] = summary
+        else:
+            # Fallback to repo description if no README or if AI summary is unavailable
+            repo["ai_readme_summary"] = repo["description"] if repo["description"] != "No description provided." else "Discover the implementation details and specialized features of this repository."
+
+    # Use a thread pool to process repos in parallel (limit to 3 for RPM safety)
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        executor.map(process_repo_ai, data["repos"][:6])
 
     return data
