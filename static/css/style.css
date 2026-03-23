@@ -837,3 +837,118 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* ---------- Insights Card ---------- */
+.insights-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 32px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.insights-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.insights-title svg {
+    color: var(--accent);
+}
+
+.insights-title h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.insights-score-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+#insights-score {
+    color: var(--accent-hover);
+    font-weight: 700;
+}
+
+.insights-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.insight-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: transform var(--transition);
+}
+
+.insight-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.insight-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.insight-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.insight-item.success .insight-icon { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.insight-item.warning .insight-icon { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.insight-item.info .insight-icon { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+
+.insight-content h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.insight-content p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .insights-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .insights-list {
+        grid-template-columns: 1fr;
+    }
+}

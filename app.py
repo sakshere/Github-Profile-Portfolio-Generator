@@ -53,6 +53,7 @@ def generate():
             "session_id": session_id,
             "profile": github_data["profile"],
             "stats": github_data["stats"],
+            "insights": github_data["insights"],
         })
 
     except ValueError as e:

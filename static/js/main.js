@@ -15,6 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const regenerateBtn = document.getElementById("regenerate-btn");
     const rateLimitHint = document.getElementById("rate-limit-hint");
 
+    const ICONS = {
+        "user-plus": '<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/>',
+        "map-pin": '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+        "briefcase": '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+        "folder-plus": '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/>',
+        "code": '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+        "star": '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+        "check-circle": '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+        "info": '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>'
+    };
+
     // ---- Theme Selection ----
     document.querySelectorAll(".theme-pill").forEach((pill) => {
         pill.addEventListener("click", () => {
@@ -127,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResult(data) {
-        const { session_id, profile, stats } = data;
+        const { session_id, profile, stats, insights } = data;
 
         // Populate result card
         document.getElementById("result-avatar").src = profile.avatar_url;
@@ -149,9 +160,52 @@ document.addEventListener("DOMContentLoaded", () => {
         animateCounter("result-repos", stats.total_repos);
         animateCounter("result-stars", stats.total_stars);
         animateCounter("result-forks", stats.total_forks);
+
+        // Render Insights
+        renderInsights(insights);
     }
 
-    function animateCounter(elementId, target) {
+    function renderInsights(insights) {
+        const insightsCard = document.getElementById("insights-card");
+        const insightsList = document.getElementById("insights-list");
+
+        if (!insights || insights.length === 0) {
+            insightsCard.style.display = "none";
+            return;
+        }
+
+        insightsList.innerHTML = "";
+        
+        // Calculate completeness score
+        const issues = insights.filter(i => i.type !== 'success').length;
+        const scoreValue = Math.max(20, Math.min(100, 100 - (issues * 15)));
+        
+        animateCounter("insights-score", scoreValue, "%");
+
+        insights.forEach(insight => {
+            const item = document.createElement("div");
+            item.className = `insight-item ${insight.type}`;
+            
+            const iconPath = ICONS[insight.icon] || ICONS["info"];
+            
+            item.innerHTML = `
+                <div class="insight-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        ${iconPath}
+                    </svg>
+                </div>
+                <div class="insight-content">
+                    <h4>${insight.title}</h4>
+                    <p>${insight.message}</p>
+                </div>
+            `;
+            insightsList.appendChild(item);
+        });
+
+        insightsCard.style.display = "block";
+    }
+
+    function animateCounter(elementId, target, suffix = "") {
         const el = document.getElementById(elementId);
         let current = 0;
         const duration = 1000;
@@ -160,10 +214,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function update() {
             current += increment;
             if (current >= target) {
-                el.textContent = target;
+                el.textContent = target + suffix;
                 return;
             }
-            el.textContent = Math.floor(current);
+            el.textContent = Math.floor(current) + suffix;
             requestAnimationFrame(update);
         }
 

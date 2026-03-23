@@ -207,6 +207,82 @@ def get_language_color(language):
     return LANGUAGE_COLORS.get(language, "#858585")
 
 
+def get_profile_insights(data):
+    """
+    Analyze profile and repo data to provide actionable insights.
+    Returns a list of insight dictionaries.
+    """
+    profile = data.get("profile", {})
+    repos = data.get("repos", [])
+    languages = data.get("languages", [])
+    stats = data.get("stats", {})
+
+    insights = []
+
+    # 1. Profile Completeness
+    if not profile.get("bio") or profile.get("bio") == "A passionate developer.":
+        insights.append({
+            "type": "warning",
+            "title": "Missing Bio",
+            "message": "Your bio is empty or generic. A unique bio helps you stand out to recruiters and collaborators.",
+            "icon": "user-plus"
+        })
+    
+    if not profile.get("location") or profile.get("location") == "Earth":
+        insights.append({
+            "type": "info",
+            "title": "Update Location",
+            "message": "Specifying your location helps in finding local opportunities and networking.",
+            "icon": "map-pin"
+        })
+
+    if not profile.get("company"):
+        insights.append({
+            "type": "info",
+            "title": "Add Company",
+            "message": "Adding your current company or 'Freelance' status adds professional credibility.",
+            "icon": "briefcase"
+        })
+
+    # 2. Repository Health
+    if stats.get("total_repos", 0) < 5:
+        insights.append({
+            "type": "warning",
+            "title": "Expand Your Portfolio",
+            "message": "You have fewer than 5 public repositories. Consider showcasing more of your side projects or experiments.",
+            "icon": "folder-plus"
+        })
+
+    # 3. Technical Diversity
+    if len(languages) < 3:
+        insights.append({
+            "type": "info",
+            "title": "Broaden Your Skills",
+            "message": "You primarily use 1-2 languages. Learning a new language or framework can expand your problem-solving toolkit.",
+            "icon": "code"
+        })
+
+    # 4. Success Recognition
+    if stats.get("total_stars", 0) > 10:
+        insights.append({
+            "type": "success",
+            "title": "Rising Star",
+            "message": f"Great job! You've earned {stats['total_stars']} stars across your repositories.",
+            "icon": "star"
+        })
+    
+    # 5. Summary Insight
+    if len(insights) == 0:
+        insights.append({
+            "type": "success",
+            "title": "Profile looking sharp!",
+            "message": "Your GitHub profile is well-maintained and provides a great overview of your work.",
+            "icon": "check-circle"
+        })
+
+    return insights
+
+
 def process_data(username):
     """
     Main function: fetches and processes all GitHub data for a user.
@@ -226,10 +302,15 @@ def process_data(username):
             "color": get_language_color(lang),
         })
 
-    return {
+    data = {
         "profile": profile,
         "repos": repos[:12],  # Top 12 repos for the portfolio
         "languages": language_chart_data,
         "stats": stats,
         "all_repos_count": len(repos),
     }
+
+    # Add insights based on the processed data
+    data["insights"] = get_profile_insights(data)
+
+    return data
